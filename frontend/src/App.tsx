@@ -4,7 +4,8 @@ import SchematicRenderer from './components/SchematicRenderer';
 
 function App() {
   const [netlist, setNetlist] = useState('');
-  const [data, setData] = useState(null);
+  type NetlistData = { components: any[] }; // Replace 'any' with the actual component type if known
+  const [data, setData] = useState<NetlistData | null>(null);
 
   const handleSubmit = async () => {
     const result = await parseNetlist(netlist);
